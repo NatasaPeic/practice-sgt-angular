@@ -1,22 +1,99 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Task #3</title>
 
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
+      <link href="assets/styles/main.css" rel="stylesheet" />
+
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-      <h1>Example</h1>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+
+
+      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+    </head>
+
+    <body class="container-fluid"  ng-app="studentRegistryApp" ng-controller="MainController">
+      <form class="form-horizontal" action="index.html" method="post">
+
+        <div id="legend">
+           <legend class="">Register</legend>
+        </div>
+
+
+        <div class="control-group">
+          <label class="control-label" for="username">Student First Name</label>
+            <div class="controls">
+               <input  placeholder="First Name" type="text" ng-model="firstName" name="id" class="form-control input-lg">
+             </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="username">Student Last Name</label>
+            <div class="controls">
+               <input placeholder="Last Name" type="text" ng-model="lastName" name="name" class="form-control input-lg">
+             </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="username">Student Address</label>
+            <div class="controls">
+              <input  placeholder="Address" type="text" ng-model="address" name="address" class="form-control input-lg">
+             </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="username">Student City</label>
+            <div class="controls">
+              <input  placeholder="City" type="text" ng-model="city" name="city" class="form-control input-lg">
+             </div>
+        </div>
+
+        <br>
+
+
+        <div class="control-group">
+              <!-- Button -->
+              <div class="controls">
+                <input type="button" name="name" value="Register" ng-click="insertdata()">
+              </div>
+            </div>
+          </fieldset>
+        </form>
+
+        <br>
+
+
+
+
+
+<script>
+
+var app = angular.module("studentRegistryApp", []);
+
+
+
+app.controller('MainController', function($scope, $http) {
+  $scope.insertdata = function () {
+    $http.post("insert.php", {
+      'id':$scope.id,
+      'firstName':$scope.firstName,
+      'lastName':$scope.lastName,
+      'address':$scope.address,
+      'city':$scope.city})
+    .success(function (data) {
+      console.log(data);
+    });
+  };
+});
+
+</script>
+
+
+
+
+
     </body>
 </html>
