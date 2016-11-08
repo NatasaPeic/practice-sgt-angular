@@ -18,7 +18,6 @@ var app = angular.module("studentRegistryApp", []);
 app.controller('MainController', function($scope, $http) {
   $scope.insertdata = function () {
     $http.post("insert.php", {
-      'id':$scope.id,
       'firstName':$scope.firstName,
       'lastName':$scope.lastName,
       'address':$scope.address,
@@ -43,6 +42,6 @@ $city = mysql_real_escape_string($data->city);
 
 mysql_connect("localhost", "root", "");
 mysql_select_db("student_registry");
-mysql_query("INSERT INTO students (`first_name`, `last_name`, `address`, `city`) VALUES('".$id."', '".$firstName."', '".$lastName."', '".$address."', '".$city."')");
+mysql_query("INSERT INTO students (`first_name`, `last_name`, `address`, `city`) VALUES('".$firstName."', '".$lastName."', '".$address."', '".$city."')");
  ?>
 ```

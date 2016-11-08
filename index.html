@@ -78,7 +78,6 @@ var app = angular.module("studentRegistryApp", []);
 app.controller('MainController', function($scope, $http) {
   $scope.insertdata = function () {
     $http.post("insert.php", {
-      'id':$scope.id,
       'firstName':$scope.firstName,
       'lastName':$scope.lastName,
       'address':$scope.address,
