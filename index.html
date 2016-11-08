@@ -26,14 +26,14 @@
         <div class="control-group">
           <label class="control-label" for="first_name">Student First Name</label>
             <div class="controls">
-               <input  placeholder="First Name" type="text" ng-model="firstName" name="id" class="form-control input-lg">
+               <input  placeholder="First Name" type="text" ng-model="first_name" name="id" class="form-control input-lg">
              </div>
         </div>
 
         <div class="control-group">
           <label class="control-label" for="last_name">Student Last Name</label>
             <div class="controls">
-               <input placeholder="Last Name" type="text" ng-model="lastName" name="name" class="form-control input-lg">
+               <input placeholder="Last Name" type="text" ng-model="last_name" name="name" class="form-control input-lg">
              </div>
         </div>
 
@@ -78,8 +78,8 @@ var app = angular.module("studentRegistryApp", []);
 app.controller('MainController', function($scope, $http) {
   $scope.insertdata = function () {
     $http.post("insert.php", {
-      'firstName':$scope.firstName,
-      'lastName':$scope.lastName,
+      'first_name':$scope.first_name,
+      'last_name':$scope.last_name,
       'address':$scope.address,
       'city':$scope.city})
     .success(function (data) {
